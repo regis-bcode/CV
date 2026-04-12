@@ -31,12 +31,30 @@ const profileData = {
   name: "Regis Heverton Reis",
   tags: ["Head de PMO", "Portfólio", "Tecnologia", "Delivery", "Sustentação"],
   headlineTags: [
-    "Head de Tecnologia",
-    "Head de PMO",
-    "Governan\u00e7a de TI",
-    "Gest\u00e3o de Portf\u00f3lio",
-    "Opera\u00e7\u00f5es de Tecnologia",
-    "Transforma\u00e7\u00e3o Organizacional"
+    {
+      tag: "Head de Tecnologia",
+      summary: "Lideran\u00e7a de TI ponta a ponta, conectando arquitetura, seguran\u00e7a e performance para sustentar crescimento do neg\u00f3cio."
+    },
+    {
+      tag: "Head de PMO",
+      summary: "Estrutura\u00e7\u00e3o de PMO corporativo com governan\u00e7a, cad\u00eancia executiva e prioriza\u00e7\u00e3o para entrega previs\u00edvel."
+    },
+    {
+      tag: "Governan\u00e7a de TI",
+      summary: "Implanta\u00e7\u00e3o de processos, indicadores e gest\u00e3o de riscos para garantir controle, compliance e decis\u00e3o baseada em dados."
+    },
+    {
+      tag: "Gest\u00e3o de Portf\u00f3lio",
+      summary: "Orquestra\u00e7\u00e3o de demanda x capacidade para direcionar recursos ao que gera maior impacto estrat\u00e9gico."
+    },
+    {
+      tag: "Opera\u00e7\u00f5es de Tecnologia",
+      summary: "Gest\u00e3o de sustentac\u00e3o e opera\u00e7\u00f5es cr\u00edticas com foco em estabilidade, continuidade e excel\u00eancia de servi\u00e7o."
+    },
+    {
+      tag: "Transforma\u00e7\u00e3o Organizacional",
+      summary: "Reestrutura\u00e7\u00e3o de processos, times e modelo operacional para elevar maturidade e produtividade em escala."
+    }
   ],
   titles: [
     {
@@ -500,6 +518,7 @@ const ExperienceTimelineItem = ({ exp }) => {
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [activeHeadlineTag, setActiveHeadlineTag] = useState(profileData.headlineTags[0]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30">
@@ -521,16 +540,25 @@ export default function Portfolio() {
               {profileData.name}
             </h1>
             <div className="flex flex-wrap items-center gap-2.5 max-w-5xl">
-              {profileData.headlineTags.map((tag) => (
+              {profileData.headlineTags.map((item) => (
                 <button
-                  key={tag}
+                  key={item.tag}
                   type="button"
-                  className="px-3.5 py-1.5 rounded-full border border-cyan-400/40 bg-cyan-500/10 text-cyan-200 text-sm md:text-base font-semibold hover:bg-cyan-500/20 hover:border-cyan-300/60 transition-all"
+                  onClick={() => setActiveHeadlineTag(item)}
+                  aria-pressed={activeHeadlineTag.tag === item.tag}
+                  className={`px-3.5 py-1.5 rounded-full border text-cyan-200 text-sm md:text-base font-semibold transition-all ${
+                    activeHeadlineTag.tag === item.tag
+                      ? 'border-cyan-300/80 bg-cyan-500/25 shadow-[0_0_14px_rgba(34,211,238,0.25)]'
+                      : 'border-cyan-400/40 bg-cyan-500/10 hover:bg-cyan-500/20 hover:border-cyan-300/60'
+                  }`}
                 >
-                  {tag}
+                  {item.tag}
                 </button>
               ))}
             </div>
+            <p className="mt-3 max-w-4xl text-sm md:text-base text-cyan-100/90 leading-relaxed bg-cyan-500/10 border border-cyan-400/30 rounded-xl px-4 py-2.5">
+              {activeHeadlineTag.summary}
+            </p>
             <h2 className="mt-4 text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400 font-medium max-w-3xl leading-relaxed">
               Transformando complexidade em previsibilidade operacional através de Governança, IA e Liderança Estratégica.
             </h2>
