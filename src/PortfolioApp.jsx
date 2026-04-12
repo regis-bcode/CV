@@ -519,6 +519,48 @@ const ExperienceTimelineItem = ({ exp }) => {
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('overview');
   const [activeHeadlineTag, setActiveHeadlineTag] = useState(profileData.headlineTags[0]);
+  const [expandedPillar, setExpandedPillar] = useState('Estruturação');
+
+  const corePillars = [
+    {
+      title: 'Estruturação',
+      description:
+        'Implementação de modelos operacionais, frameworks e rituais que elevam o nível de maturidade organizacional, especialmente em cenários de crescimento ou reestruturação.'
+    },
+    {
+      title: 'Previsibilidade',
+      description:
+        'Estabelecimento de governança, cadência e métricas que aumentam a confiabilidade das entregas e reduzem variabilidade operacional.'
+    }
+  ];
+
+  const complementaryPillars = [
+    {
+      title: 'Alinhamento Estratégico',
+      description:
+        'Desdobramento de objetivos corporativos em iniciativas priorizadas, garantindo conexão clara entre estratégia, portfólio e execução.'
+    },
+    {
+      title: 'Gestão de Portfólio & Prioridades',
+      description:
+        'Orquestração de demandas, capacidade e investimento para maximizar geração de valor e evitar dispersão operacional.'
+    },
+    {
+      title: 'Eficiência Operacional',
+      description:
+        'Otimização contínua de processos, eliminação de desperdícios e aumento de throughput organizacional.'
+    },
+    {
+      title: 'Cultura de Performance',
+      description:
+        'Implantação de rituais, feedback contínuo e mecanismos de accountability que sustentam alta performance no longo prazo.'
+    },
+    {
+      title: 'Gestão de Riscos & Decisão',
+      description:
+        'Antecipação de riscos críticos e suporte à tomada de decisão baseada em dados, reduzindo incerteza e aumentando assertividade.'
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30">
@@ -699,7 +741,7 @@ export default function Portfolio() {
               </div>
 
               {/* SEÇÃO: GESTÃO HUMANIZADA & PILARES DE LIDERANÇA */}
-              <div className="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-5 gap-6 mt-2">
+              <div className="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-5 md:items-start gap-6 mt-2">
                 {/* Gestão Humanizada */}
                 <div className="md:col-span-3 bg-gradient-to-br from-emerald-900/40 via-teal-900/20 to-slate-900/50 border border-emerald-500/30 p-8 md:p-10 rounded-3xl backdrop-blur-sm relative overflow-hidden group hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all duration-500">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] group-hover:bg-emerald-500/20 transition-all duration-700 pointer-events-none"></div>
@@ -751,75 +793,74 @@ export default function Portfolio() {
                 </div>
 
                 {/* Pilares Operacionais */}
-                <div className="md:col-span-2 bg-slate-900/50 border border-slate-800 p-8 md:p-10 rounded-3xl backdrop-blur-sm flex flex-col justify-center">
+                <div className="md:col-span-2 bg-slate-900/50 border border-slate-800 p-8 md:p-10 rounded-3xl backdrop-blur-sm flex flex-col">
                   <div className="flex items-center gap-3 mb-8">
                     <TrendingUp className="w-6 h-6 text-blue-400" />
                     <h3 className="text-2xl font-bold text-white">Pilares de Execução</h3>
                   </div>
                   <div className="space-y-4">
-                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
-                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform"></div>
-                        Estruturação
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Implementação de modelos operacionais, frameworks e rituais que elevam o nível de maturidade organizacional, especialmente em cenários de crescimento ou reestruturação.</p>
-                    </div>
-                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
-                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-150 transition-transform"></div>
-                        Previsibilidade
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Estabelecimento de governança, cadência e métricas que aumentam a confiabilidade das entregas e reduzem variabilidade operacional.</p>
-                    </div>
+                    {corePillars.map((pillar) => (
+                      <div key={pillar.title} className="p-4 rounded-2xl bg-slate-800/40 border border-slate-700/50">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedPillar((current) => (current === pillar.title ? '' : pillar.title))
+                          }
+                          className="w-full flex items-center justify-between gap-3 text-left"
+                        >
+                          <span className="inline-flex items-center gap-2 text-white font-semibold">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                            {pillar.title}
+                          </span>
+                          {expandedPillar === pillar.title ? (
+                            <ChevronUp className="w-4 h-4 text-slate-300" />
+                          ) : (
+                            <ChevronDown className="w-4 h-4 text-slate-300" />
+                          )}
+                        </button>
+                        {expandedPillar === pillar.title && (
+                          <p className="mt-3 text-sm text-slate-400 leading-relaxed">{pillar.description}</p>
+                        )}
+                      </div>
+                    ))}
+
                     <div className="pt-2">
                       <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Pilares Complementares</p>
                     </div>
-                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
-                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover:scale-150 transition-transform"></div>
-                        Alinhamento Estratégico
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Desdobramento de objetivos corporativos em iniciativas priorizadas, garantindo conexão clara entre estratégia, portfólio e execução.</p>
-                    </div>
-                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
-                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:scale-150 transition-transform"></div>
-                        Gestão de Portfólio & Prioridades
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Orquestração de demandas, capacidade e investimento para maximizar geração de valor e evitar dispersão operacional.</p>
-                    </div>
-                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
-                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 group-hover:scale-150 transition-transform"></div>
-                        Eficiência Operacional
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Otimização contínua de processos, eliminação de desperdícios e aumento de throughput organizacional.</p>
-                    </div>
-                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
-                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-fuchsia-400 group-hover:scale-150 transition-transform"></div>
-                        Cultura de Performance
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Implantação de rituais, feedback contínuo e mecanismos de accountability que sustentam alta performance no longo prazo.</p>
-                    </div>
-                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
-                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-amber-400 group-hover:scale-150 transition-transform"></div>
-                        Gestão de Riscos & Decisão
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Antecipação de riscos críticos e suporte à tomada de decisão baseada em dados, reduzindo incerteza e aumentando assertividade.</p>
-                    </div>
+
+                    {complementaryPillars.map((pillar) => (
+                      <div key={pillar.title} className="p-4 rounded-2xl bg-slate-800/35 border border-slate-700/50">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedPillar((current) => (current === pillar.title ? '' : pillar.title))
+                          }
+                          className="w-full flex items-center justify-between gap-3 text-left"
+                        >
+                          <span className="inline-flex items-center gap-2 text-white font-semibold">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                            {pillar.title}
+                          </span>
+                          {expandedPillar === pillar.title ? (
+                            <ChevronUp className="w-4 h-4 text-slate-300" />
+                          ) : (
+                            <ChevronDown className="w-4 h-4 text-slate-300" />
+                          )}
+                        </button>
+                        {expandedPillar === pillar.title && (
+                          <p className="mt-3 text-sm text-slate-400 leading-relaxed">{pillar.description}</p>
+                        )}
+                      </div>
+                    ))}
+
                     <div className="p-5 rounded-2xl bg-slate-800/30 border border-slate-700/40">
                       <h4 className="text-white font-semibold mb-2">Ajuste Estratégico (Visão de Conjunto)</h4>
-                      <p className="text-sm text-slate-400 leading-relaxed mb-3">
-                        Com esses pilares, o modelo cobre da estratégia ao operacional com governança e impacto mensurável.
-                      </p>
-                      <div className="grid gap-2">
-                        <span className="text-xs text-slate-300">Pessoas: liderança e cultura</span>
-                        <span className="text-xs text-slate-300">Execução: estrutura e previsibilidade</span>
-                        <span className="text-xs text-slate-300">Estratégia: alinhamento e portfólio</span>
-                        <span className="text-xs text-slate-300">Performance: eficiência e decisão</span>
-                      </div>
+                      <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-300">
+                        <li><strong>Pessoas:</strong> liderança e cultura</li>
+                        <li><strong>Execução:</strong> estrutura e previsibilidade</li>
+                        <li><strong>Estratégia:</strong> alinhamento e portfólio</li>
+                        <li><strong>Performance:</strong> eficiência e decisão</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
