@@ -59,31 +59,31 @@ const profileData = {
   titles: [
     {
       title: "Head de Tecnologia",
-      description: "Responsável por liderar a área de TI, garantindo que sistemas, infraestrutura e equipes suportem o crescimento do negócio, com foco em eficiência, segurança e estabilidade."
+      description: "Conecta estratégia, arquitetura, segurança e engenharia para escalar a TI com estabilidade e performance."
     },
     {
       title: "Head de PMO",
-      description: "Responsável por estruturar e liderar o escritório de projetos, garantindo que as iniciativas estratégicas sejam entregues com controle e previsibilidade, com foco em organização de prioridades, governança e execução."
+      description: "Estrutura governança, ritos e priorização executiva para transformar estratégia em entrega previsível."
     },
     {
       title: "Governança de TI",
-      description: "Responsável por estabelecer práticas de organização e controle, garantindo o alinhamento da tecnologia com o negócio, com foco em processos, indicadores, riscos, compliance e tomada de decisão estruturada."
+      description: "Implanta métricas, controles e gestão de riscos para elevar conformidade e qualidade das decisões."
     },
     {
       title: "Gestão de Portfólio",
-      description: "Responsável por priorizar e organizar projetos e iniciativas, garantindo que os recursos sejam direcionados para o que realmente gera resultado, com foco em impacto estratégico e geração de valor."
+      description: "Orquestra demanda, capacidade e investimento para maximizar valor e reduzir dispersão operacional."
     },
     {
       title: "Operações",
-      description: "Responsável pela gestão do dia a dia da tecnologia, garantindo que sistemas, suporte e serviços funcionem ininterruptamente, com foco em estabilidade, performance e continuidade para o negócio."
+      description: "Garante continuidade, SLAs e eficiência operacional em ambientes críticos de tecnologia."
     },
     {
       title: "Transformação Organizacional",
-      description: "Responsável por reestruturar processos, tecnologia e modelo de operação, garantindo o aumento da eficiência e maturidade, com foco na capacidade de escala e crescimento da empresa."
+      description: "Redesenha processos, estruturas e modelo operacional para ganho de maturidade, escala e produtividade."
     },
     {
       title: "Visão Multisetorial",
-      description: "Capacidade de atuar de forma fluida em diferentes indústrias, garantindo a rápida adaptação de governança e tecnologia, com foco em trazer as melhores práticas do mercado global para gerar vantagem competitiva."
+      description: "Transfere práticas de diferentes indústrias para acelerar resultados com visão estratégica e execução pragmática."
     }
   ],
   humanFactors: [
@@ -682,7 +682,7 @@ export default function Portfolio() {
                       Vantagem Competitiva com I.A.
                     </h3>
                     <p className="text-xl md:text-2xl text-indigo-100 leading-relaxed font-light">
-                      <strong className="text-white font-bold">Diferencial prático e aplicado na utilização de Inteligência Artificial</strong> para gestão de projetos, estruturação refinada de backlog e <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 font-bold drop-shadow-sm">aumento exponencial da produtividade da engenharia</span>.
+                      Diferencial prático e aplicado na utilização de Inteligência Artificial para gestão de projetos, estruturação refinada de backlog e aumento exponencial da produividade da engenharia de entregas eficientes de projeto.
                     </p>
                   </div>
                   <div className="w-full md:w-auto flex justify-center relative z-20">
@@ -703,6 +703,9 @@ export default function Portfolio() {
                 {/* Gestão Humanizada */}
                 <div className="md:col-span-3 bg-gradient-to-br from-emerald-900/40 via-teal-900/20 to-slate-900/50 border border-emerald-500/30 p-8 md:p-10 rounded-3xl backdrop-blur-sm relative overflow-hidden group hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all duration-500">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] group-hover:bg-emerald-500/20 transition-all duration-700 pointer-events-none"></div>
+                  <div className="absolute top-0 right-0 bg-gradient-to-bl from-emerald-300 via-emerald-500 to-teal-500 text-slate-950 text-[0.7rem] font-extrabold px-4 py-2 rounded-bl-2xl shadow-[0_4px_15px_rgba(16,185,129,0.45)] flex items-center gap-1.5 uppercase tracking-wider z-20">
+                    <HeartHandshake className="w-3.5 h-3.5" /> Selo de Gestão Humanizada
+                  </div>
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase mb-6 tracking-wider">
                     <HeartHandshake className="w-4 h-4" /> O Fator Humano como Base
                   </div>
@@ -759,14 +762,64 @@ export default function Portfolio() {
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform"></div>
                         Estruturação
                       </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Profissionalização da gestão e aumento de maturidade em contextos de crescimento acelerado ou desorganização.</p>
+                      <p className="text-sm text-slate-400 leading-relaxed">Implementação de modelos operacionais, frameworks e rituais que elevam o nível de maturidade organizacional, especialmente em cenários de crescimento ou reestruturação.</p>
                     </div>
                     <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
                       <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-150 transition-transform"></div>
                         Previsibilidade
                       </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed">Implantação de modelos de governança para organizar a capacidade produtiva, reduzindo riscos e garantindo entregas.</p>
+                      <p className="text-sm text-slate-400 leading-relaxed">Estabelecimento de governança, cadência e métricas que aumentam a confiabilidade das entregas e reduzem variabilidade operacional.</p>
+                    </div>
+                    <div className="pt-2">
+                      <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Pilares Complementares</p>
+                    </div>
+                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
+                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover:scale-150 transition-transform"></div>
+                        Alinhamento Estratégico
+                      </h4>
+                      <p className="text-sm text-slate-400 leading-relaxed">Desdobramento de objetivos corporativos em iniciativas priorizadas, garantindo conexão clara entre estratégia, portfólio e execução.</p>
+                    </div>
+                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
+                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:scale-150 transition-transform"></div>
+                        Gestão de Portfólio & Prioridades
+                      </h4>
+                      <p className="text-sm text-slate-400 leading-relaxed">Orquestração de demandas, capacidade e investimento para maximizar geração de valor e evitar dispersão operacional.</p>
+                    </div>
+                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
+                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 group-hover:scale-150 transition-transform"></div>
+                        Eficiência Operacional
+                      </h4>
+                      <p className="text-sm text-slate-400 leading-relaxed">Otimização contínua de processos, eliminação de desperdícios e aumento de throughput organizacional.</p>
+                    </div>
+                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
+                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-fuchsia-400 group-hover:scale-150 transition-transform"></div>
+                        Cultura de Performance
+                      </h4>
+                      <p className="text-sm text-slate-400 leading-relaxed">Implantação de rituais, feedback contínuo e mecanismos de accountability que sustentam alta performance no longo prazo.</p>
+                    </div>
+                    <div className="p-5 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800/60 transition-all group">
+                      <h4 className="text-white font-semibold mb-1.5 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-amber-400 group-hover:scale-150 transition-transform"></div>
+                        Gestão de Riscos & Decisão
+                      </h4>
+                      <p className="text-sm text-slate-400 leading-relaxed">Antecipação de riscos críticos e suporte à tomada de decisão baseada em dados, reduzindo incerteza e aumentando assertividade.</p>
+                    </div>
+                    <div className="p-5 rounded-2xl bg-slate-800/30 border border-slate-700/40">
+                      <h4 className="text-white font-semibold mb-2">Ajuste Estratégico (Visão de Conjunto)</h4>
+                      <p className="text-sm text-slate-400 leading-relaxed mb-3">
+                        Com esses pilares, o modelo cobre da estratégia ao operacional com governança e impacto mensurável.
+                      </p>
+                      <div className="grid gap-2">
+                        <span className="text-xs text-slate-300">Pessoas: liderança e cultura</span>
+                        <span className="text-xs text-slate-300">Execução: estrutura e previsibilidade</span>
+                        <span className="text-xs text-slate-300">Estratégia: alinhamento e portfólio</span>
+                        <span className="text-xs text-slate-300">Performance: eficiência e decisão</span>
+                      </div>
                     </div>
                   </div>
                 </div>
