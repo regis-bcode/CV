@@ -562,6 +562,11 @@ export default function Portfolio() {
     }
   ];
 
+  const allPillars = [
+    ...corePillars.map((pillar) => ({ ...pillar, group: 'Essencial' })),
+    ...complementaryPillars.map((pillar) => ({ ...pillar, group: 'Complementar' }))
+  ];
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30">
       {/* Elementos de background decorativos */}
@@ -741,9 +746,9 @@ export default function Portfolio() {
               </div>
 
               {/* SEÇÃO: GESTÃO HUMANIZADA & PILARES DE LIDERANÇA */}
-              <div className="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-5 md:items-start gap-6 mt-2">
+              <div className="col-span-1 md:col-span-3 space-y-6 mt-2">
                 {/* Gestão Humanizada */}
-                <div className="md:col-span-3 bg-gradient-to-br from-emerald-900/40 via-teal-900/20 to-slate-900/50 border border-emerald-500/30 p-8 md:p-10 rounded-3xl backdrop-blur-sm relative overflow-hidden group hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all duration-500">
+                <div className="bg-gradient-to-br from-emerald-900/40 via-teal-900/20 to-slate-900/50 border border-emerald-500/30 p-8 md:p-10 rounded-3xl backdrop-blur-sm relative overflow-hidden group hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all duration-500">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] group-hover:bg-emerald-500/20 transition-all duration-700 pointer-events-none"></div>
                   <div className="absolute top-0 right-0 bg-gradient-to-bl from-emerald-300 via-emerald-500 to-teal-500 text-slate-950 text-[0.7rem] font-extrabold px-4 py-2 rounded-bl-2xl shadow-[0_4px_15px_rgba(16,185,129,0.45)] flex items-center gap-1.5 uppercase tracking-wider z-20">
                     <HeartHandshake className="w-3.5 h-3.5" /> Selo de Gestão Humanizada
@@ -793,13 +798,13 @@ export default function Portfolio() {
                 </div>
 
                 {/* Pilares Operacionais */}
-                <div className="md:col-span-2 bg-slate-900/50 border border-slate-800 p-8 md:p-10 rounded-3xl backdrop-blur-sm flex flex-col">
+                <div className="bg-slate-900/50 border border-slate-800 p-8 md:p-10 rounded-3xl backdrop-blur-sm flex flex-col">
                   <div className="flex items-center gap-3 mb-8">
                     <TrendingUp className="w-6 h-6 text-blue-400" />
                     <h3 className="text-2xl font-bold text-white">Pilares de Execução</h3>
                   </div>
-                  <div className="space-y-4">
-                    {corePillars.map((pillar) => (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {allPillars.map((pillar) => (
                       <div key={pillar.title} className="p-4 rounded-2xl bg-slate-800/40 border border-slate-700/50">
                         <button
                           type="button"
@@ -808,10 +813,13 @@ export default function Portfolio() {
                           }
                           className="w-full flex items-center justify-between gap-3 text-left"
                         >
-                          <span className="inline-flex items-center gap-2 text-white font-semibold">
-                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-                            {pillar.title}
-                          </span>
+                          <div className="flex flex-col items-start gap-1">
+                            <span className="text-[10px] uppercase tracking-wider text-slate-400">{pillar.group}</span>
+                            <span className="inline-flex items-center gap-2 text-white font-semibold">
+                              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                              {pillar.title}
+                            </span>
+                          </div>
                           {expandedPillar === pillar.title ? (
                             <ChevronUp className="w-4 h-4 text-slate-300" />
                           ) : (
@@ -824,36 +832,7 @@ export default function Portfolio() {
                       </div>
                     ))}
 
-                    <div className="pt-2">
-                      <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Pilares Complementares</p>
-                    </div>
-
-                    {complementaryPillars.map((pillar) => (
-                      <div key={pillar.title} className="p-4 rounded-2xl bg-slate-800/35 border border-slate-700/50">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setExpandedPillar((current) => (current === pillar.title ? '' : pillar.title))
-                          }
-                          className="w-full flex items-center justify-between gap-3 text-left"
-                        >
-                          <span className="inline-flex items-center gap-2 text-white font-semibold">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-                            {pillar.title}
-                          </span>
-                          {expandedPillar === pillar.title ? (
-                            <ChevronUp className="w-4 h-4 text-slate-300" />
-                          ) : (
-                            <ChevronDown className="w-4 h-4 text-slate-300" />
-                          )}
-                        </button>
-                        {expandedPillar === pillar.title && (
-                          <p className="mt-3 text-sm text-slate-400 leading-relaxed">{pillar.description}</p>
-                        )}
-                      </div>
-                    ))}
-
-                    <div className="p-5 rounded-2xl bg-slate-800/30 border border-slate-700/40">
+                    <div className="md:col-span-3 p-5 rounded-2xl bg-slate-800/30 border border-slate-700/40">
                       <h4 className="text-white font-semibold mb-2">Ajuste Estratégico (Visão de Conjunto)</h4>
                       <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-300">
                         <li><strong>Pessoas:</strong> liderança e cultura</li>
