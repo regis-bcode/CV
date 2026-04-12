@@ -30,7 +30,14 @@ import {
 const profileData = {
   name: "Regis Heverton Reis",
   tags: ["Head de PMO", "Portfólio", "Tecnologia", "Delivery", "Sustentação"],
-  headline: "Head de Tecnologia | Head de PMO | Governan\u00e7a de TI | Gest\u00e3o de Portf\u00f3lio | Opera\u00e7\u00f5es de Tecnologia | Transforma\u00e7\u00e3o Organizacional",
+  headlineTags: [
+    "Head de Tecnologia",
+    "Head de PMO",
+    "Governan\u00e7a de TI",
+    "Gest\u00e3o de Portf\u00f3lio",
+    "Opera\u00e7\u00f5es de Tecnologia",
+    "Transforma\u00e7\u00e3o Organizacional"
+  ],
   titles: [
     {
       title: "Head de Tecnologia",
@@ -523,9 +530,17 @@ export default function Portfolio() {
             <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
               {profileData.name}
             </h1>
-            <h2 className="text-lg md:text-xl text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-300 to-teal-300 font-semibold max-w-5xl leading-relaxed">
-              {profileData.headline}
-            </h2>
+            <div className="flex flex-wrap items-center gap-2.5 max-w-5xl">
+              {profileData.headlineTags.map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  className="px-3.5 py-1.5 rounded-full border border-cyan-400/40 bg-cyan-500/10 text-cyan-200 text-sm md:text-base font-semibold hover:bg-cyan-500/20 hover:border-cyan-300/60 transition-all"
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
             <h2 className="mt-4 text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400 font-medium max-w-3xl leading-relaxed">
               Transformando complexidade em previsibilidade operacional através de Governança, IA e Liderança Estratégica.
             </h2>
