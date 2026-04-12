@@ -1,11 +1,9 @@
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 
-const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
-const basePath =
-  process.env.GITHUB_ACTIONS === 'true' && repoName ? `/${repoName}/` : '/';
-
 export default defineConfig({
   plugins: [tailwindcss()],
-  base: basePath,
+  // Relative base keeps the built app working both on GitHub Pages (/CV/)
+  // and local preview/dev scenarios that open index from root.
+  base: './',
 });
