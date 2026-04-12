@@ -517,16 +517,6 @@ export default function Portfolio() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold mb-6">
               <Zap className="w-4 h-4" /> Executivo de Tecnologia & Operações
             </div>
-            <div className="flex flex-wrap gap-2 mb-5 max-w-4xl">
-              {profileData.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 text-blue-200 text-xs md:text-sm font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
               {profileData.name}
             </h1>
